@@ -59,5 +59,5 @@ imports: [
 </div>
 ```
 
-### Live example
+### Live example (Flags are not working for some reason)
 https://stackblitz.com/edit/angular-opecoe
