@@ -1,27 +1,63 @@
-# NgxIntlTelInputApp
+# International Telephone Input
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 7.0.6.
+This package is based on [https://github.com/webcat12345/ngx-intl-tel-input](https://github.com/webcat12345/ngx-intl-tel-input). But since it's no longer maintained I decided to update it to work with Angular 7. Also phone number validation is working now and there is support for the (Reactive)FormsModule.
 
-## Development server
+![alt](screenshot.png)
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
+## Installation
 
-## Code scaffolding
+1. Install ngx-bootstrap
+```bash
+$ ng add ngx-bootstrap
+```
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+2. Install intl-tel-input
+```bash
+$ npm install intl-tel-input --save
+```
 
-## Build
+3. Add intl-tel-input css to angular.json
+Look for the `styles` array in your angular.json and add `./node_modules/intl-tel-input/build/css/intlTelInput.css`. It should look like this after adding it:
+```
+"styles": [
+  ...
+  "./node_modules/bootstrap/dist/css/bootstrap.min.css",
+  "./node_modules/ngx-bootstrap/datepicker/bs-datepicker.css",
+  "./node_modules/intl-tel-input/build/css/intlTelInput.css",
+  "src/styles.css"
+  ...
+],
+```
+4. Install google-libphonenumber
+```bash
+$ npm install google-libphonenumber --save
+```
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory. Use the `--prod` flag for a production build.
+5. Install this library
+```bash
+$ npm install angular-intl-tel-input --save
+```
 
-## Running unit tests
+6. Add BsDropDownModule and IntlTelInputModule to your angular module file
+```
+imports: [
+    ...
+    BsDropdownModule.forRoot(),
+    IntlTelInputModule,
+    ...
+  ]
+```
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
+## Example usage
+```
+<div class="container">
+  <form #form="ngForm">
+    <intl-tel-input [preferredCountries]="['nl', 'gb', 'de', 'be']" [enablePlaceholder]="true" name="phoneNumber" ngModel></intl-tel-input>
+  </form>
 
-## Running end-to-end tests
+  <pre>{{ form.value | json }}</pre>
+</div>
+```
 
-Run `ng e2e` to execute the end-to-end tests via [Protractor](http://www.protractortest.org/).
-
-## Further help
-
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI README](https://github.com/angular/angular-cli/blob/master/README.md).
+### Live example
+https://stackblitz.com/edit/angular-opecoe
