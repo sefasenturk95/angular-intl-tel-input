@@ -6,12 +6,12 @@ This package is based on [https://github.com/webcat12345/ngx-intl-tel-input](htt
 
 ## Installation
 
-1. Install ngx-bootstrap
+1. Install [ngx-bootstrap](https://valor-software.com/ngx-bootstrap/#/)
 ```bash
 $ ng add ngx-bootstrap
 ```
 
-2. Install intl-tel-input
+2. Install [intl-tel-input](https://github.com/jackocnr/intl-tel-input)
 ```bash
 $ npm install intl-tel-input --save
 ```
@@ -28,7 +28,7 @@ Look for the `styles` array in your angular.json and add `./node_modules/intl-te
   ...
 ],
 ```
-4. Install google-libphonenumber
+4. Install [google-libphonenumber](https://github.com/ruimarinho/google-libphonenumber)
 ```bash
 $ npm install google-libphonenumber --save
 ```
