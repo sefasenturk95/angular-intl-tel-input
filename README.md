@@ -18,7 +18,7 @@ $ npm install intl-tel-input --save
 
 3. Add intl-tel-input css to angular.json
 Look for the `styles` array in your angular.json and add `./node_modules/intl-tel-input/build/css/intlTelInput.css`. It should look like this after adding it:
-```
+```typescript
 "styles": [
   ...
   "./node_modules/bootstrap/dist/css/bootstrap.min.css",
@@ -39,7 +39,7 @@ $ npm install angular-intl-tel-input --save
 ```
 
 6. Add BsDropDownModule and IntlTelInputModule to your angular module file
-```
+```typescript
 imports: [
     ...
     BsDropdownModule.forRoot(),
@@ -49,7 +49,7 @@ imports: [
 ```
 
 ## Example usage
-```
+```html
 <div class="container">
   <form #form="ngForm">
     <intl-tel-input [preferredCountries]="['nl', 'gb', 'de', 'be']" [enablePlaceholder]="true" name="phoneNumber" ngModel></intl-tel-input>
