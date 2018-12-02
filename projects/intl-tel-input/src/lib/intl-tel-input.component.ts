@@ -1,4 +1,4 @@
-import {Component, forwardRef, Input, OnInit} from '@angular/core';
+import {Component, forwardRef, Input, OnChanges, OnInit, SimpleChanges} from '@angular/core';
 import {CountryCode} from './resource/country-code';
 import * as lpn from 'google-libphonenumber';
 import {Country} from './model/country.model';
@@ -40,8 +40,7 @@ export class IntlTelInputComponent implements OnInit, ControlValueAccessor {
   phoneUtil = lpn.PhoneNumberUtil.getInstance();
   disabled = false;
 
-  propagateChange = (_: any) => {
-  };
+  propagateChange = (_: any) => {};
 
   constructor(
     private countryCodeData: CountryCode
@@ -147,8 +146,7 @@ export class IntlTelInputComponent implements OnInit, ControlValueAccessor {
     this.propagateChange = fn;
   }
 
-  registerOnTouched(fn: any): void {
-  }
+  registerOnTouched(fn: any): void {}
 
   setDisabledState(isDisabled: boolean): void {
     this.disabled = isDisabled;
@@ -156,8 +154,10 @@ export class IntlTelInputComponent implements OnInit, ControlValueAccessor {
 
   writeValue(obj: any): void {
     if (obj) {
-      this.value = obj;
+      this.phoneNumber = obj;
+      setTimeout(() => {
+        this.onPhoneNumberChange();
+      }, 1);
     }
   }
-
 }

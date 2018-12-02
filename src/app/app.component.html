@@ -1,7 +1,10 @@
 <div class="container">
-  <form #form="ngForm">
-    <intl-tel-input [preferredCountries]="['nl', 'gb', 'de', 'be']" [enablePlaceholder]="true" name="phoneNumber" ngModel></intl-tel-input>
+  <form [formGroup]="form">
+    <input type="text" formControlName="name">
+    <br />
+    <intl-tel-input [preferredCountries]="['nl', 'gb', 'de', 'be']" [enablePlaceholder]="true" formControlName="phoneNumber"></intl-tel-input>
   </form>
 
   <pre>{{ form.value | json }}</pre>
+  <pre>Valid: {{ form.valid }}</pre>
 </div>
